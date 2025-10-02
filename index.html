@@ -273,7 +273,7 @@
                         Merci pour votre message ! Je vous répondrai très bientôt.
                     </div>
 
-                    <form id="contactForm" action="https://submit-form.com/echo">
+                    <form id="contactForm" action="https://submit-form.com/Vje1NX3nr">
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
                             <input type="text" id="name" name="name" required>
@@ -381,19 +381,33 @@
                 message: document.getElementById('message').value
             };
 
-            console.log('Form submitted:', formData);
-
-            // Show success message
-            document.getElementById('successMessage').classList.add('show');
-
-            // Reset form
-            this.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 5000);
+            fetch('https://submit-form.com/Vje1NX3nr', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Show success message
+                        document.getElementById('successMessage').classList.add('show');
+                        // Reset form
+                        this.reset();
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            document.getElementById('successMessage').classList.remove('show');
+                        }, 5000);
+                    } else {
+                        alert("Une erreur est survenue, veuillez réessayer.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Impossible d'envoyer le formulaire.");
+                });
         });
+
 
         // Smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
