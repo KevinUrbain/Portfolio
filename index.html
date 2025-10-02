@@ -274,7 +274,7 @@
                     </div>
 
                     <form id="contactForm" action="https://submit-form.com/Vje1NX3nr" method="POST"
-                        target="hidden_iframe" onsubmit="showSuccessMessage()">
+                        target="hidden_iframe">
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
                             <input type="text" id="name" name="name" required>
@@ -372,18 +372,18 @@
         });
 
         // Contact form handling
-        function showSuccessMessage() {
-            const message = document.getElementById('successMessage');
-            message.style.display = 'block';
+        // function showSuccessMessage() {
+        //     const message = document.getElementById('successMessage');
+        //     message.style.display = 'block';
 
-            // Cache le message après 5 secondes
-            setTimeout(() => {
-                message.style.display = 'none';
-            }, 5000);
+        //     // Cache le message après 5 secondes
+        //     setTimeout(() => {
+        //         message.style.display = 'none';
+        //     }, 5000);
 
-            // Réinitialise le formulaire
-            document.getElementById('contactForm').reset();
-        }
+        //     // Réinitialise le formulaire
+        //     document.getElementById('contactForm').reset();
+        // }
 
 
         // Smooth scroll behavior
