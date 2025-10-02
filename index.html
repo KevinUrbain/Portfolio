@@ -45,7 +45,7 @@
                     compétences au service de projets innovants et en enrichissant sans cesse mes connaissances.
                 </p>
                 <button class="cta-button" onclick="showPage('reconversion')">Découvrir mon parcours</button>
-                <a href="documents/kevinurbain.pdf" target="_blank"><button class="cta-button download-cv">Télécharger
+                <a href="documents/kevinurbainCV.pdf" target="_blank"><button class="cta-button download-cv">Télécharger
                         mon
                         CV</button></a>
             </div>
@@ -63,7 +63,7 @@
                         alt="Image d'un homme tapant au clavier">
                 </div>
                 <div class="work-content">
-                    <h3><a href="typerush/index.html" target="_blank">TypeRush</a></h3>
+                    <h3 id="typerush-section"><a href="typerush/index.html">TypeRush</a></h3>
                     <div class="work-tags">
                         <span class="tag">2025</span>
                         <span class="category">Jeux</span>
@@ -84,7 +84,7 @@
                     <img src="images/todolist.jpg" alt="Vibrant Portraits">
                 </div>
                 <div class="work-content">
-                    <h3><a href="todolist/index.html" target="_blank">Todo List</a></h3>
+                    <h3 id="todolist-section"><a href="todolist/index.html" target="_blank">Todo List</a></h3>
                     <div class="work-tags">
                         <span class="tag">2024</span>
                         <span class="category">Productivité</span>
@@ -102,7 +102,8 @@
                     <img src="images/calculatrice.jpg" alt="Malayalam Typography">
                 </div>
                 <div class="work-content">
-                    <h3><a href="calculatrice/index.html" target="_blank">Calculatrice</a></h3>
+                    <h3 id="calculatrice-section"><a href="calculatrice/index.html" target="_blank">Calculatrice</a>
+                    </h3>
                     <div class="work-tags">
                         <span class="tag">2024</span>
                         <span class="category">Mathématiques</span>
@@ -121,7 +122,7 @@
                     <img src="images/shifumi.png" alt="Malayalam Typography">
                 </div>
                 <div class="work-content">
-                    <h3><a href="shifumi/index.html" target="_blank">Pierre Papier Ciseaux</a></h3>
+                    <h3 id="shifumi-section"><a href="shifumi/index.html" target="_blank">Pierre Papier Ciseaux</a></h3>
                     <div class="work-tags">
                         <span class="tag">2024</span>
                         <span class="category">Jeux</span>
@@ -372,48 +373,6 @@
             timelineItems.forEach(item => observer.observe(item));
         });
 
-        // Contact form handling
-        // const form = document.getElementById('contactForm');
-        // form.onsubmit = async function (e) {
-        //     e.preventDefault();
-        //     const data = new FormData(form);
-
-        //     // URL de l'endpoint API uniquement, pas la page de confirmation
-        //     const url = "https://submit.formspark.io/f/Vje1NX3nr";
-
-        //     try {
-        //         const response = await fetch(url, {
-        //             method: "POST",
-        //             body: data
-        //         });
-
-        //         if (response.ok) {
-        //             showSuccessMessage();
-        //         } else {
-        //             alert("Erreur lors de l’envoi.");
-        //         }
-        //     } catch (err) {
-        //         console.error(err);
-        //         alert("Erreur réseau.");
-        //     }
-        // };
-
-
-        // // Fonction pour afficher le message de succès et réinitialiser le formulaire
-        // function showSuccessMessage() {
-        //     const message = document.getElementById('successMessage');
-        //     message.style.display = 'block';
-
-        //     // Cache le message après 5 secondes
-        //     setTimeout(() => {
-        //         message.style.display = 'none';
-        //     }, 5000);
-
-        //     // Réinitialise le formulaire
-        //     document.getElementById('contactForm').reset();
-        // }
-
-
         // Smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -442,6 +401,70 @@
             }
 
             lastScroll = currentScroll;
+        });
+
+        // Sauvegarder la position de scroll quand on clique sur un lien vers TypeRush
+        document.querySelectorAll('a[href="typerush/index.html"]').forEach(link => {
+            link.addEventListener('click', () => {
+                localStorage.setItem('scrollPos', window.scrollY);
+            });
+        });
+
+        // Au chargement de la page, remettre la position
+        window.addEventListener('load', () => {
+            const pos = localStorage.getItem('scrollPos');
+            if (pos) {
+                window.scrollTo(0, parseInt(pos));
+                localStorage.removeItem('scrollPos'); // facultatif
+            }
+        });
+
+        // Sauvegarder la position de scroll quand on clique sur un lien vers Todo list
+        document.querySelectorAll('a[href="todolist/index.html"]').forEach(link => {
+            link.addEventListener('click', () => {
+                localStorage.setItem('scrollPos', window.scrollY);
+            });
+        });
+
+        // Au chargement de la page, remettre la position
+        window.addEventListener('load', () => {
+            const pos = localStorage.getItem('scrollPos');
+            if (pos) {
+                window.scrollTo(0, parseInt(pos));
+                localStorage.removeItem('scrollPos'); // facultatif
+            }
+        });
+
+        // Sauvegarder la position de scroll quand on clique sur un lien vers TypeRush
+        document.querySelectorAll('a[href="calculatrice/index.html"]').forEach(link => {
+            link.addEventListener('click', () => {
+                localStorage.setItem('scrollPos', window.scrollY);
+            });
+        });
+
+        // Au chargement de la page, remettre la position
+        window.addEventListener('load', () => {
+            const pos = localStorage.getItem('scrollPos');
+            if (pos) {
+                window.scrollTo(0, parseInt(pos));
+                localStorage.removeItem('scrollPos'); // facultatif
+            }
+        });
+
+        // Sauvegarder la position de scroll quand on clique sur un lien vers TypeRush
+        document.querySelectorAll('a[href="shifumi/index.html"]').forEach(link => {
+            link.addEventListener('click', () => {
+                localStorage.setItem('scrollPos', window.scrollY);
+            });
+        });
+
+        // Au chargement de la page, remettre la position
+        window.addEventListener('load', () => {
+            const pos = localStorage.getItem('scrollPos');
+            if (pos) {
+                window.scrollTo(0, parseInt(pos));
+                localStorage.removeItem('scrollPos'); // facultatif
+            }
         });
     </script>
 </body>
