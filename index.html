@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Urbain - Développeur Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="logo" onclick="showPage('home')">Kevin<span class="blue-text">Urbain</span></div>
+        <nav>
+            <a onclick="showPage('home')">Accueil</a>
+            <a onclick="showPage('reconversion')">Ma reconversion</a>
+            <a onclick="showPage('contact')">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bonjour, je suis Kevin,<br><span class="blue-text">Développeur Web</span></h1>
+                <p>
+                    Je m’appelle Kevin Urbain et je suis actuellement étudiant à E6K de Charleroi en tant que
+                    développeur web.
+                </p>
+                <p>
+                    Ce site, que j’ai entièrement conçu et développé moi-même en HTML, CSS et JavaScript, reflète ma
+                    passion pour le développement web et applicatif.
+                </p>
+                <p>
+                    Curieux, motivé et rigoureux, j’aime relever des
+                    défis techniques et transformer mes idées en projets concrets, fonctionnels et esthétiques.
+                </p>
+                <p>
+                    Ancien éducateur, j'ai décidé de me réorienter et de transformer ma passion en un métier. Mon
+                    objectif est de
+                    continuer à progresser dans ce domaine qui me passionne, en mettant mes
+                    compétences au service de projets innovants et en enrichissant sans cesse mes connaissances.
+                </p>
+                <button class="cta-button" onclick="showPage('reconversion')">Découvrir mon parcours</button>
+                <a href="documents/kevinurbain.pdf" target="_blank"><button class="cta-button download-cv">Télécharger
+                        mon
+                        CV</button></a>
+            </div>
+            <div class="hero-image">
+                <img src="images/Photo-profil.png" alt="Photo de profil du développeur">
+            </div>
+        </section>
+
+        <section class="featured-works" id="works">
+            <h2 style="margin-bottom: 40px; font-size: 24px;">Mes outils développés</h2>
+
+            <div class="work-item">
+                <div class="work-thumbnail">
+                    <img src="images/gros-plan-personne-aide-clavier-mac-sans-fil.png"
+                        alt="Image d'un homme tapant au clavier">
+                </div>
+                <div class="work-content">
+                    <h3><a href="typerush/index.html" target="_blank">TypeRush</a></h3>
+                    <div class="work-tags">
+                        <span class="tag">2025</span>
+                        <span class="category">Jeux</span>
+                        <span class="category">Javascript</span>
+                    </div>
+                    <p>
+                        TypeRush vous permet de tester et d’améliorer votre vitesse de frappe au clavier de manière
+                        ludique et interactive. Vous pouvez suivre vos performances, relever des défis chronométrés
+                        et
+                        voir vos progrès au fil du temps.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="work-item">
+                <div class="work-thumbnail">
+                    <img src="images/todolist.jpg" alt="Vibrant Portraits">
+                </div>
+                <div class="work-content">
+                    <h3><a href="todolist/index.html" target="_blank">Todo List</a></h3>
+                    <div class="work-tags">
+                        <span class="tag">2024</span>
+                        <span class="category">Productivité</span>
+                        <span class="category">Javascript</span>
+                    </div>
+                    <p>Cette application simple et intuitive permet de créer, organiser et suivre vos tâches
+                        quotidiennes. Grâce à une interface épurée, vous pouvez ajouter, supprimer ou cocher vos tâches
+                        en un clic. L’objectif est d’offrir un outil pratique pour améliorer la productivité et garder
+                        une vision claire de vos priorités.</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-thumbnail">
+                    <img src="images/calculatrice.jpg" alt="Malayalam Typography">
+                </div>
+                <div class="work-content">
+                    <h3><a href="calculatrice/index.html" target="_blank">Calculatrice</a></h3>
+                    <div class="work-tags">
+                        <span class="tag">2024</span>
+                        <span class="category">Mathématiques</span>
+                    </div>
+                    <p>
+                        Cette application permet d’effectuer rapidement et facilement toutes vos opérations
+                        mathématiques
+                        de base. Grâce à une interface claire et intuitive, vous pouvez additionner, soustraire,
+                        multiplier, diviser et effectuer d’autres calculs en toute simplicité. Un outil pratique pour
+                        vos besoins quotidiens ou pour vos études.
+                    </p>
+                </div>
+            </div>
+            <div class="work-item">
+                <div class="work-thumbnail">
+                    <img src="images/shifumi.png" alt="Malayalam Typography">
+                </div>
+                <div class="work-content">
+                    <h3><a href="shifumi/index.html" target="_blank">Pierre Papier Ciseaux</a></h3>
+                    <div class="work-tags">
+                        <span class="tag">2024</span>
+                        <span class="category">Jeux</span>
+                    </div>
+                    <p>
+                        Cette application permet d’effectuer rapidement et facilement toutes vos opérations
+                        mathématiques
+                        de base. Grâce à une interface claire et intuitive, vous pouvez additionner, soustraire,
+                        multiplier, diviser et effectuer d’autres calculs en toute simplicité. Un outil pratique pour
+                        vos besoins quotidiens ou pour vos études.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- RECONVERSION PAGE -->
+    <div id="reconversion" class="page">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h1>Mon parcours de reconversion</h1>
+                <p>De mes débuts à aujourd'hui, découvrez les étapes clés qui ont façonné mon parcours professionnel</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2015 - 2018</span>
+                        <h3>Début des études supérieures</h3>
+                        <h4>Chimie - UMons</h4>
+                        <p>
+                            Je commence un bachelier en sciences chimiques à l’Université de Mons. Après deux années, je
+                            réalise progressivement que la chimie ne m’anime plus autant et je commence à m’interroger
+                            sur mon avenir professionnel.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2018 - 2020</span>
+                        <h3>Premières responsabilités et réorientation</h3>
+                        <h4>Achat d’une maison – Formation et emploi</h4>
+                        <p>
+                            Je deviens propriétaire d’une maison et, pour répondre à mes obligations financières, je
+                            cherche à entrer rapidement dans la vie active. J’intègre alors le CPAS de Frameries tout en
+                            suivant un bachelier en éducation spécialisée.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 - 2025</span>
+                        <h3>Prise de recul et quête de sens</h3>
+                        <h4>Expérience d’éducateur – Réflexion personnelle</h4>
+                        <p>
+                            Éducateur à temps plein auprès d’enfants, je ressens un malaise croissant : le domaine
+                            social ne correspond pas à une véritable vocation pour moi, mais davantage à un métier
+                            alimentaire. Les journées me paraissent longues et je n’envisage pas d’y faire carrière.
+                            Peu à peu, je fais le point sur mon parcours. Passionné depuis toujours par les jeux vidéo,
+                            les sciences et les technologies, je ressens le besoin de me tourner vers le numérique. Un
+                            souvenir refait surface : à l’adolescence, j’avais créé un petit site en HTML pour organiser
+                            des tournois sur Call of Duty. Pourquoi ne pas renouer avec cette passion ?</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024 - 2025</span>
+                        <h3>(Re)découverte du code</h3>
+                        <h4>Apprentissage autodidacte</h4>
+                        <p>
+                            Je reprends les bases du HTML et du CSS via OpenClassrooms et passe des heures à créer de
+                            petits sites statiques et des animations. Je prends plaisir à apprendre et je redécouvre une
+                            véritable motivation.
+                            Je poursuis avec Dyma.fr pour aborder JavaScript et C#. Bien que plus complexes, ces
+                            langages renforcent mon intérêt : j’apprécie le défi intellectuel qu’ils représentent. Je
+                            m’exerce sur Frontend Mentor, développe un portfolio et réalise un site vitrine pour
+                            l’activité d’avocate de mon épouse.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024 - 2025</span>
+                        <h3>Préparation de la reconversion</h3>
+                        <h4>Organisation et recherche de formation</h4>
+                        <p>
+                            Je prends la décision d’aménager mon temps de travail en passant à mi-temps afin de me
+                            consacrer pleinement à ma reconversion. Après plusieurs recherches, je découvre l’E6K de
+                            Charleroi, qui propose des certifications de développeur web.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025</span>
+                        <h3>Etudiant en développement web</h3>
+                        <h4>Formation en full stack – Option back-end</h4>
+                        <p>
+                            Depuis septembre 2025, je suis inscrit en développement web. La première année est consacrée
+                            au tronc commun en full stack, avant une spécialisation prévue en deuxième année. Je
+                            m’oriente déjà vers le back-end, domaine qui correspond à mon profil et à mes intérêts.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025 - Aujourd'hui</span>
+                        <h3>Projets personnels et recherche de stage</h3>
+                        <h4>Mise en pratique et professionnalisation</h4>
+                        <p>
+                            Je travaille sur des projets personnels afin d’approfondir mes compétences et valoriser mon
+                            profil. Je suis actuellement à la recherche d’un stage conventionné (minimum 125 heures, non
+                            rémunéré) pour mettre en pratique mes apprentissages. Mon portfolio reflète ma progression,
+                            ma détermination et mon projet de reconversion.
+                            <br>
+                            <br>
+                            Mon objectif : devenir développêur full stack.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <div class="contact-container">
+            <div class="contact-wrapper">
+                <div class="contact-header">
+                    <h1>Contactez-moi</h1>
+                    <p>Une question ? Un projet ? N'hésitez pas à me contacter, je vous répondrai dans les plus brefs
+                        délais.</p>
+                </div>
+
+                <div class="contact-form">
+                    <div class="success-message" id="successMessage">
+                        Merci pour votre message ! Je vous répondrai très bientôt.
+                    </div>
+
+                    <form id="contactForm" action="https://formspree.io/f/xblzyyvj" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Envoyer le message</button>
+                    </form>
+
+                    <div class="contact-info">
+                        <h3>Autres moyens de me contacter</h3>
+                        <p>Email: <a href="mailto:kevin.urbain.pro@gmail.com">kevin.urbain.pro@gmail.com</a></p>
+                        <p>Téléphone: <a href="tel:+32497830473">+32 497 83 04 73</a></p>
+                        <p>LinkedIn: <a href="https://www.linkedin.com/in/kevin-urbain-6b4443187/"
+                                target="_blank">https://www.linkedin.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/kevin.hamiltonien" target="blank" aria-label="Facebook">
+                <i class="fa-brands fa-facebook fa-xl"></i>
+            </a>
+            <a href="https://www.instagram.com/kev.de.nazarick/" target="blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram fa-xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/kevin-urbain-6b4443187/" target="blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-square-linkedin fa-xl"></i>
+            </a>
+        </div>
+        <p>Copyright ©2025 All rights reserved</p>
+    </footer>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+
+            // Trigger timeline animation if on reconversion page
+            if (pageId === 'reconversion') {
+                setTimeout(animateTimeline, 100);
+            }
+        }
+
+        // Timeline animation
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            timelineItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('show');
+                }, index * 200);
+            });
+        }
+
+        // Intersection Observer for timeline (on scroll)
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => observer.observe(item));
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            console.log('Form submitted:', formData);
+
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+
+            // Reset form
+            this.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 5000);
+        });
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header transparency effect on scroll
+        const header = document.querySelector('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+
+</html>

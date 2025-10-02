@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierre-Papier-Ciseaux</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f9fc;
+            text-align: center;
+            padding: 50px;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #f57c00;
+            color: white;
+        }
+
+        button:hover {
+            background: #ef6c00;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        a.back {
+            display: block;
+            margin-top: 30px;
+            color: #f57c00;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a.back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Pierre-Papier-Ciseaux</h1>
+        <p>Affrontez l’ordinateur 🎮</p>
+    </header>
+
+    <div>
+        <button onclick="play('pierre')">🪨 Pierre</button>
+        <button onclick="play('papier')">📄 Papier</button>
+        <button onclick="play('ciseaux')">✂️ Ciseaux</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <a href="../index.html" class="back">← Retour au portfolio</a>
+
+    <script>
+        function play(playerChoice) {
+            const choices = ["pierre", "papier", "ciseaux"];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+            let result = "";
+            if (playerChoice === computerChoice) {
+                result = "Égalité ! 🤝";
+            } else if (
+                (playerChoice === "pierre" && computerChoice === "ciseaux") ||
+                (playerChoice === "papier" && computerChoice === "pierre") ||
+                (playerChoice === "ciseaux" && computerChoice === "papier")
+            ) {
+                result = `Vous gagnez 🎉 (${playerChoice} bat ${computerChoice})`;
+            } else {
+                result = `Vous perdez 😢 (${computerChoice} bat ${playerChoice})`;
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+</body>
+
+</html>

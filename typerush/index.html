@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeRush - Jeu de vitesse de frappe</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f7f9fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: #1e88e5;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .game-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .sentence {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        textarea {
+            width: 90%;
+            height: 100px;
+            font-size: 1rem;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            resize: none;
+        }
+
+        button {
+            margin-top: 20px;
+            background: #1e88e5;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background: #1565c0;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #1e88e5;
+            font-weight: bold;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>TypeRush</h1>
+        <p>Testez et améliorez votre vitesse de frappe</p>
+    </header>
+
+    <div class="game-container">
+        <p class="sentence" id="sentence"></p>
+        <textarea id="input" placeholder="Tapez la phrase ici..." disabled></textarea><br>
+        <button id="startBtn">Commencer</button>
+        <div class="result" id="result"></div>
+        <a class="back-link" href="../index.html">← Retour au portfolio</a>
+    </div>
+
+    <script>
+        const sentences = [
+            "Le développement web est une aventure passionnante.",
+            "JavaScript rend vos sites dynamiques et interactifs.",
+            "La pratique régulière améliore vos compétences au clavier.",
+            "Coder, c’est résoudre des problèmes étape par étape."
+        ];
+
+        const sentenceEl = document.getElementById("sentence");
+        const inputEl = document.getElementById("input");
+        const startBtn = document.getElementById("startBtn");
+        const resultEl = document.getElementById("result");
+
+        let startTime;
+        let currentSentence;
+
+        function startGame() {
+            // Choisir une phrase aléatoire
+            currentSentence = sentences[Math.floor(Math.random() * sentences.length)];
+            sentenceEl.textContent = currentSentence;
+
+            inputEl.value = "";
+            inputEl.disabled = false;
+            inputEl.focus();
+            resultEl.textContent = "";
+            startBtn.textContent = "Rejouer";
+
+            startTime = new Date().getTime();
+        }
+
+        inputEl.addEventListener("input", () => {
+            if (inputEl.value === currentSentence) {
+                const endTime = new Date().getTime();
+                const duration = (endTime - startTime) / 1000; // en secondes
+                const words = currentSentence.split(" ").length;
+                const wpm = Math.round((words / duration) * 60);
+
+                resultEl.textContent = `Bravo 🎉 Vous avez tapé la phrase en ${duration.toFixed(2)}s (${wpm} mots/minute)`;
+                inputEl.disabled = true;
+            }
+        });
+
+        startBtn.addEventListener("click", startGame);
+    </script>
+
+</body>
+
+</html>
