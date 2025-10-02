@@ -4,84 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TypeRush - Jeu de vitesse de frappe</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TypeRush</title>
     <style>
         body {
             font-family: "Segoe UI", sans-serif;
-            background: #f7f9fc;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            text-align: center;
+            background: #f4f4f9;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1e88e5;
+        }
+
+        #game {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #word {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px;
+            color: #2c3e50;
+        }
+
+        #input {
+            font-size: 1.5em;
+            padding: 10px;
+            width: 250px;
             text-align: center;
         }
 
-        header {
-            background: #1e88e5;
-            color: white;
-            padding: 20px;
+        #stats {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #444;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
+        #timer {
+            font-size: 1.5em;
+            margin-top: 15px;
+            color: #e74c3c;
         }
 
-        .game-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .sentence {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        textarea {
-            width: 90%;
-            height: 100px;
-            font-size: 1rem;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            resize: none;
+        #result {
+            display: none;
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
         }
 
         button {
-            margin-top: 20px;
-            background: #1e88e5;
-            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
             border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
-            cursor: pointer;
             border-radius: 8px;
+            cursor: pointer;
+            background: #3498db;
+            color: #fff;
+            transition: 0.2s;
         }
 
         button:hover {
-            background: #1565c0;
+            background: #2980b9;
         }
 
-        .result {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        a.back-link {
-            display: inline-block;
+        a.back {
+            display: block;
             margin-top: 30px;
-            text-decoration: none;
             color: #1e88e5;
             font-weight: bold;
+            text-decoration: none;
+            text-align: center;
         }
 
-        a.back-link:hover {
+        a.back:hover {
             text-decoration: underline;
         }
     </style>
@@ -89,64 +89,145 @@
 
 <body>
 
-    <header>
-        <h1>TypeRush</h1>
-        <p>Testez et améliorez votre vitesse de frappe</p>
-    </header>
+    <h1>TypeRush</h1>
+    <button id="startBtn">Démarrer</button>
 
-    <div class="game-container">
-        <p class="sentence" id="sentence"></p>
-        <textarea id="input" placeholder="Tapez la phrase ici..." disabled></textarea><br>
-        <button id="startBtn">Commencer</button>
-        <div class="result" id="result"></div>
-        <a class="back-link" href="../index.html">← Retour au portfolio</a>
+    <div id="game">
+        <div id="timer">Temps : 60s</div>
+        <div id="word">---</div>
+        <input type="text" id="input" placeholder="Tapez le mot ici..." autocomplete="off" />
+        <div id="stats">
+            Mots tapés : <span id="typed">0</span> |
+            Corrects : <span id="correct">0</span> |
+            Erreurs : <span id="errors">0</span>
+        </div>
+    </div>
+
+    <div id="result"></div>
+    <div>
+        <a class="back" href="../index.html">← Retour au portfolio</a>
     </div>
 
     <script>
-        const sentences = [
-            "Le développement web est une aventure passionnante.",
-            "JavaScript rend vos sites dynamiques et interactifs.",
-            "La pratique régulière améliore vos compétences au clavier.",
-            "Coder, c’est résoudre des problèmes étape par étape."
+        const words = [
+            "chat", "maison", "ordinateur", "voiture", "javascript", "clavier", "souris", "internet", "écran", "musique",
+            "soleil", "lune", "étoile", "planète", "galaxie", "pomme", "banane", "orange", "fraise", "raisin",
+            "livre", "table", "chaise", "fenêtre", "porte", "jardin", "fleur", "arbre", "forêt", "montagne",
+            "mer", "océan", "rivière", "lac", "plage", "sable", "vague", "bateau", "poisson", "requin",
+            "oiseau", "aigle", "papillon", "abeille", "fourmi", "lion", "tigre", "éléphant", "girafe", "zèbre",
+            "chien", "lapin", "souris", "hamster", "tortue", "serpent", "lézard", "grenouille", "canard", "poule",
+            "pain", "fromage", "lait", "beurre", "chocolat", "café", "thé", "eau", "jus", "soda",
+            "pizza", "pâtes", "riz", "poulet", "viande", "salade", "tomate", "carotte", "pomme", "poire",
+            "rouge", "bleu", "vert", "jaune", "noir", "blanc", "rose", "violet", "orange", "marron",
+            "grand", "petit", "haut", "bas", "long", "court", "rapide", "lent", "chaud", "froid",
+            "beau", "laid", "jeune", "vieux", "nouveau", "ancien", "bon", "mauvais", "fort", "faible",
+            "école", "classe", "professeur", "élève", "cahier", "stylo", "crayon", "gomme", "règle", "cartable",
+            "sport", "football", "tennis", "natation", "course", "vélo", "basket", "volley", "ski", "hockey",
+            "ville", "rue", "avenue", "place", "parc", "magasin", "restaurant", "café", "hôtel", "banque",
+            "voiture", "bus", "train", "avion", "bateau", "vélo", "moto", "camion", "taxi", "métro",
+            "téléphone", "tablette", "écran", "clavier", "souris", "imprimante", "caméra", "micro", "casque", "câble",
+            "famille", "père", "mère", "frère", "soeur", "fils", "fille", "grand-père", "grand-mère", "oncle",
+            "ami", "copain", "voisin", "collègue", "docteur", "infirmier", "policier", "pompier", "boulanger", "coiffeur",
+            "heure", "minute", "seconde", "jour", "semaine", "mois", "année", "siècle", "matin", "soir",
+            "printemps", "été", "automne", "hiver", "janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre", "lundi", "mardi", "mercredi", "jeudi",
+            "vendredi", "samedi", "dimanche", "aujourd'hui", "demain", "hier", "maintenant", "toujours", "jamais", "parfois"
         ];
 
-        const sentenceEl = document.getElementById("sentence");
-        const inputEl = document.getElementById("input");
+        let timer = 60;
+        let interval;
+        let currentWord = "";
+        let totalTyped = 0;
+        let correct = 0;
+        let errors = 0;
+
         const startBtn = document.getElementById("startBtn");
+        const game = document.getElementById("game");
+        const wordEl = document.getElementById("word");
+        const input = document.getElementById("input");
+        const timerEl = document.getElementById("timer");
+        const typedEl = document.getElementById("typed");
+        const correctEl = document.getElementById("correct");
+        const errorsEl = document.getElementById("errors");
         const resultEl = document.getElementById("result");
 
-        let startTime;
-        let currentSentence;
-
-        function startGame() {
-            // Choisir une phrase aléatoire
-            currentSentence = sentences[Math.floor(Math.random() * sentences.length)];
-            sentenceEl.textContent = currentSentence;
-
-            inputEl.value = "";
-            inputEl.disabled = false;
-            inputEl.focus();
-            resultEl.textContent = "";
-            startBtn.textContent = "Rejouer";
-
-            startTime = new Date().getTime();
+        function getRandomWord() {
+            return words[Math.floor(Math.random() * words.length)];
         }
 
-        inputEl.addEventListener("input", () => {
-            if (inputEl.value === currentSentence) {
-                const endTime = new Date().getTime();
-                const duration = (endTime - startTime) / 1000; // en secondes
-                const words = currentSentence.split(" ").length;
-                const wpm = Math.round((words / duration) * 60);
+        function newWord() {
+            currentWord = getRandomWord();
+            wordEl.textContent = currentWord;
+            input.value = "";
+            input.focus();
+        }
 
-                resultEl.textContent = `Bravo 🎉 Vous avez tapé la phrase en ${duration.toFixed(2)}s (${wpm} mots/minute)`;
-                inputEl.disabled = true;
+        function updateStats() {
+            typedEl.textContent = totalTyped;
+            correctEl.textContent = correct;
+            errorsEl.textContent = errors;
+        }
+
+        function startGame() {
+            startBtn.style.display = "none";
+            game.style.display = "block";
+            resultEl.style.display = "none";
+
+            timer = 60;
+            totalTyped = 0;
+            correct = 0;
+            errors = 0;
+            updateStats();
+
+            newWord();
+
+            interval = setInterval(() => {
+                timer--;
+                timerEl.textContent = "Temps : " + timer + "s";
+                if (timer <= 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        function endGame() {
+            clearInterval(interval);
+            game.style.display = "none";
+            resultEl.style.display = "block";
+
+            let wpm = Math.round((correct / 60) * 60);
+            let accuracy = totalTyped > 0 ? Math.round((correct / totalTyped) * 100) : 0;
+
+            resultEl.innerHTML = `
+        <h2>Résultats</h2>
+        <p>Mots tapés : ${totalTyped}</p>
+        <p>Corrects : ${correct}</p>
+        <p>Erreurs : ${errors}</p>
+        <p>Vitesse : ${wpm} mots/min</p>
+        <p>Précision : ${accuracy}%</p>
+        <button onclick="startGame()">Rejouer</button>
+      `;
+        }
+
+        input.addEventListener("keydown", (e) => {
+            if (e.key === " " || e.key === "Enter") {
+                e.preventDefault();
+                let typedWord = input.value.trim();
+                if (typedWord.length > 0) {
+                    totalTyped++;
+                    if (typedWord === currentWord) {
+                        correct++;
+                    } else {
+                        errors++;
+                    }
+                    updateStats();
+                    newWord();
+                }
             }
         });
 
         startBtn.addEventListener("click", startGame);
     </script>
-
 </body>
 
 </html>
