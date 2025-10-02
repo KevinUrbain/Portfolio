@@ -269,12 +269,13 @@
                 </div>
 
                 <div class="contact-form">
-                    <div class="success-message" id="successMessage">
+                    <!-- <div class="success-message" id="successMessage">
                         Merci pour votre message ! Je vous répondrai très bientôt.
-                    </div>
+                    </div> -->
 
-                    <form id="contactForm" action="https://submit-form.com/Vje1NX3nr" method="POST"
-                        target="hidden_iframe">
+                    <form id="contactForm" action="https://submit-form.com/Vje1NX3nr">
+                        <input type="hidden" name="_redirect"
+                            value="https://kevinurbain.github.io/portfolio/thanks.html" />
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
                             <input type="text" id="name" name="name" required>
@@ -372,6 +373,33 @@
         });
 
         // Contact form handling
+        // const form = document.getElementById('contactForm');
+        // form.onsubmit = async function (e) {
+        //     e.preventDefault();
+        //     const data = new FormData(form);
+
+        //     // URL de l'endpoint API uniquement, pas la page de confirmation
+        //     const url = "https://submit.formspark.io/f/Vje1NX3nr";
+
+        //     try {
+        //         const response = await fetch(url, {
+        //             method: "POST",
+        //             body: data
+        //         });
+
+        //         if (response.ok) {
+        //             showSuccessMessage();
+        //         } else {
+        //             alert("Erreur lors de l’envoi.");
+        //         }
+        //     } catch (err) {
+        //         console.error(err);
+        //         alert("Erreur réseau.");
+        //     }
+        // };
+
+
+        // // Fonction pour afficher le message de succès et réinitialiser le formulaire
         // function showSuccessMessage() {
         //     const message = document.getElementById('successMessage');
         //     message.style.display = 'block';
