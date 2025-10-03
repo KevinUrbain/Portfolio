@@ -270,11 +270,11 @@
                 </div>
 
                 <div class="contact-form">
-                    <!-- <div class="success-message" id="successMessage">
-                        Merci pour votre message ! Je vous répondrai très bientôt.
-                    </div> -->
+                    <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-                    <form id="contactForm" action="https://submit-form.com/Vje1NX3nr">
+                    <form id="contactForm" action="https://submit-form.com/Vje1NX3nr" method="POST" 
+                    target="hidden_iframe"
+                    onsubmit="setTimeout(function(){window.location.href='https://kevinurbain.github.io/Portfolio/';}, 1000);">
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
                             <input type="text" id="name" name="name" required>
