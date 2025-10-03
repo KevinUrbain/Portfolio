@@ -17,7 +17,7 @@
         <nav>
             <a onclick="showPage('home')">Accueil</a>
             <a onclick="showPage('reconversion')">Ma reconversion</a>
-            <a href="#works">Mes outils</a>
+            <a onclick="goToWorks()">Mes outils</a>
             <a onclick="showPage('contact')">Contact</a>
         </nav>
     </header>
@@ -481,6 +481,20 @@
                 localStorage.removeItem('scrollPos'); // facultatif
             }
         });
+
+        function goToWorks() {
+    // Affiche la page d'accueil
+    showPage('home');
+    
+    // Attendre un petit délai pour être sûr que 'home' est affiché
+    setTimeout(() => {
+        const worksSection = document.getElementById('works');
+        if (worksSection) {
+            worksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, 200);
+}
+
     </script>
 </body>
 
