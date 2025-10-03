@@ -17,6 +17,7 @@
         <nav>
             <a onclick="showPage('home')">Accueil</a>
             <a onclick="showPage('reconversion')">Ma reconversion</a>
+            <a href="#works">Mes outils</a>
             <a onclick="showPage('contact')">Contact</a>
         </nav>
     </header>
@@ -433,7 +434,7 @@
             }
         });
 
-        // Sauvegarder la position de scroll quand on clique sur un lien vers TypeRush
+        // Sauvegarder la position de scroll quand on clique sur un lien vers calculatrice
         document.querySelectorAll('a[href="calculatrice/index.html"]').forEach(link => {
             link.addEventListener('click', () => {
                 localStorage.setItem('scrollPos', window.scrollY);
@@ -449,8 +450,24 @@
             }
         });
 
-        // Sauvegarder la position de scroll quand on clique sur un lien vers TypeRush
+        // Sauvegarder la position de scroll quand on clique sur un lien vers shifumi
         document.querySelectorAll('a[href="shifumi/index.html"]').forEach(link => {
+            link.addEventListener('click', () => {
+                localStorage.setItem('scrollPos', window.scrollY);
+            });
+        });
+
+        // Au chargement de la page, remettre la position
+        window.addEventListener('load', () => {
+            const pos = localStorage.getItem('scrollPos');
+            if (pos) {
+                window.scrollTo(0, parseInt(pos));
+                localStorage.removeItem('scrollPos'); // facultatif
+            }
+        });
+
+        // Sauvegarder la position de scroll quand on clique sur un lien vers Mes outils
+        document.querySelectorAll('a[href="#works"]').forEach(link => {
             link.addEventListener('click', () => {
                 localStorage.setItem('scrollPos', window.scrollY);
             });
